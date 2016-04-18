@@ -1,12 +1,18 @@
-# NodeJS Base image
+# YouTrack image
 
-[![hope/nodejs](https://img.shields.io/badge/docker-hope/nodejs-brightgreen.svg)](https://hub.docker.com/r/hope/nodejs/)
+[![hope/youtrack](https://img.shields.io/badge/docker-hope/youtrack-brightgreen.svg)](https://hub.docker.com/r/hope/youtrack/)
 
-Base image for NodeJS containers.
+Simple Jetbrains YouTrack deployment.  
+https://www.jetbrains.com/youtrack/
 
-## Build
-
-    docker build -t hope/mariadb .
-    
 ## Run
-Used just for creating new images based on this
+
+    docker run -p 8080:8080 hope/youtrack
+    
+### Enviroment variables
+
+**YOUTRACK_PORT** – public port for app (default 8080)
+
+**JAVA_mx** – maximum heap memory size (default 1gb)
+
+**YT_*** – YouTrack Java start parameters ([full list](https://confluence.jetbrains.com/display/YTD65/YouTrack+Start+Java+Parameters)). Replace **.** with **_** when using in env variables.
