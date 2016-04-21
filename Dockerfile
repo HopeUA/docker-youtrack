@@ -10,9 +10,9 @@ ENV \
 
     # Java start parameters (replace "." with "_")
     # https://confluence.jetbrains.com/display/YTD65/YouTrack+Start+Java+Parameters
-    YT_jetbrains_youtrack_disableBrowser=true \
-    YT_database_location=/data/app \
-    YT_database_backup_location=/data/backup
+    APP_jetbrains_youtrack_disableBrowser=true \
+    APP_database_location=/data/app \
+    APP_database_backup_location=/data/backup
 
 COPY container-files/ /tmp/
 
