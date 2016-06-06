@@ -5,6 +5,7 @@ MAINTAINER Sergey Sadovoi <sergey@hope.ua>
 ENV \
     YOUTRACK_VERSION=6.5.17057 \
     YOUTRACK_PORT=8080 \
+    YOUTRACK_INSTALL=/usr/local/youtrack \
     JAVA_mx=1g \
     JAVA_headless=true \
 
@@ -22,8 +23,8 @@ RUN \
 
     # Youtrack install
     wget https://download.jetbrains.com/charisma/youtrack-${YOUTRACK_VERSION}.jar && \
-    mkdir -p /usr/local/youtrack && \
-    cp youtrack-${YOUTRACK_VERSION}.jar /usr/local/youtrack && \
+    mkdir -p ${YOUTRACK_INSTALL} && \
+    cp youtrack-${YOUTRACK_VERSION}.jar ${YOUTRACK_INSTALL} && \
 
     # Entrypoint
     cp -f /tmp/*.sh / && \
