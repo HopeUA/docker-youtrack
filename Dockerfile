@@ -3,7 +3,8 @@ FROM hope/java:8
 MAINTAINER Sergey Sadovoi <sergey@hope.ua>
 
 ENV \
-    YOUTRACK_VERSION=6.5.17057 \
+    # https://www.jetbrains.com/youtrack/download/get_youtrack.html
+    YOUTRACK_VERSION=6.5.17105 \
     YOUTRACK_PORT=8080 \
     YOUTRACK_INSTALL=/usr/local/youtrack \
     JAVA_mx=1g \
