@@ -16,7 +16,7 @@ function build_params() {
 
   # Add Youtrack options
   for i in $( set -o posix ; set | grep ^APP_ | sort -rn ); do
-    local param=$(echo ${i} | awk -F'=' '{print $1}' | sed 's/YT_//g' | sed 's/_/\./g')
+    local param=$(echo ${i} | awk -F'=' '{print $1}' | sed 's/APP_//g' | sed 's/_/\./g')
     local val=$(echo ${i} | awk -F'=' '{print $2}')
     if [ -n ${val} ]; then
       params+="-D${param}=${val} "
