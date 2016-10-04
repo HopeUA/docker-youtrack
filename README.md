@@ -15,4 +15,4 @@ https://www.jetbrains.com/youtrack/
 
 **JAVA_mx** – maximum heap memory size (default 1gb)
 
-**APP_*** – YouTrack Java start parameters ([full list](https://confluence.jetbrains.com/display/YTD65/YouTrack+Start+Java+Parameters)). Replace **.** with **_** when using in env variables.
+**APP_*** – YouTrack Java start parameters ([full list](https://www.jetbrains.com/help/youtrack/standalone/7.0/YouTrack-Java-Start-Parameters.html)). Replace **.** with **_** when using in env variables.
