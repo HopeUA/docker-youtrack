@@ -4,14 +4,14 @@ MAINTAINER Sergey Sadovoi <sergey@hope.ua>
 
 ENV \
     # https://www.jetbrains.com/youtrack/download/get_youtrack.html
-    YOUTRACK_VERSION=6.5.17105 \
+    YOUTRACK_VERSION=7.0.27588 \
     YOUTRACK_PORT=8080 \
     YOUTRACK_INSTALL=/usr/local/youtrack \
     JAVA_mx=1g \
     JAVA_headless=true \
 
     # Java start parameters (replace "." with "_")
-    # https://confluence.jetbrains.com/display/YTD65/YouTrack+Start+Java+Parameters
+    # https://www.jetbrains.com/help/youtrack/standalone/7.0/YouTrack-Java-Start-Parameters.html
     APP_jetbrains_youtrack_disableBrowser=true \
     APP_database_location=/data/app \
     APP_database_backup_location=/data/backup
@@ -19,7 +19,7 @@ ENV \
 COPY container-files/ /tmp/
 
 RUN \
-    apk add --no-cache --virtual=build-dependencies wget bash ca-certificates && \
+    apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
     cd "/tmp" && \
 
     # Youtrack install
