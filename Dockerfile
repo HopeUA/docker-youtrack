@@ -4,32 +4,21 @@ MAINTAINER Sergey Sadovoi <sergey@hope.ua>
 
 ENV \
     # https://www.jetbrains.com/youtrack/download/get_youtrack.html
-    YOUTRACK_VERSION=7.0.27588 \
+    YOUTRACK_VERSION=7.0 \
+    YOUTRACK_BUILD=27777 \
     YOUTRACK_PORT=8080 \
-    YOUTRACK_INSTALL=/usr/local/youtrack \
-    JAVA_mx=1g \
-    JAVA_headless=true \
-
-    # Java start parameters (replace "." with "_")
-    # https://www.jetbrains.com/help/youtrack/standalone/7.0/YouTrack-Java-Start-Parameters.html
-    APP_jetbrains_youtrack_disableBrowser=true \
-    APP_database_location=/data/app \
-    APP_database_backup_location=/data/backup
-
-COPY container-files/ /tmp/
+    YOUTRACK_INSTALL=/usr/local/youtrack
 
 RUN \
     apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
     cd "/tmp" && \
 
     # Youtrack install
-    wget https://download.jetbrains.com/charisma/youtrack-${YOUTRACK_VERSION}.jar && \
-    mkdir -p ${YOUTRACK_INSTALL} && \
-    cp youtrack-${YOUTRACK_VERSION}.jar ${YOUTRACK_INSTALL} && \
+    wget https://download.jetbrains.com/charisma/youtrack-${YOUTRACK_VERSION}.${YOUTRACK_BUILD}.zip && \
 
-    # Entrypoint
-    cp -f /tmp/*.sh / && \
-    chmod +x /run.sh && \
+    unzip youtrack-${YOUTRACK_VERSION}.${YOUTRACK_BUILD}.zip && \
+    rm -rf youtrack-${YOUTRACK_BUILD}/internal/java && \
+    mv youtrack-${YOUTRACK_BUILD} ${YOUTRACK_INSTALL} && \
 
     # Cleanup
     apk del build-dependencies && \
@@ -39,4 +28,5 @@ VOLUME /data
 
 EXPOSE ${YOUTRACK_PORT}
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/usr/local/youtrack/bin/youtrack.sh"]
+CMD ["run", "--no-browser"]
