@@ -30,7 +30,7 @@ RUN \
 
     # Cleanup
     apk del build-dependencies && \
-    rm "/tmp/"*
+    rm -rf "/tmp/"*
 
 VOLUME /data
 VOLUME ${YOUTRACK_INSTALL}/conf
