@@ -20,11 +20,20 @@ RUN \
     rm -rf youtrack-${YOUTRACK_BUILD}/internal/java && \
     mv youtrack-${YOUTRACK_BUILD} ${YOUTRACK_INSTALL} && \
 
+    # Configure
+    ${YOUTRACK_INSTALL}/bin/youtrack.sh configure \
+        --backups-dir=/data/backups \
+        --temp-dir=/data/temp \
+        --data-dir=/data/app \
+        --logs-dir=/data/logs \
+        --listen-port=${YOUTRACK_PORT} && \
+
     # Cleanup
     apk del build-dependencies && \
     rm "/tmp/"*
 
 VOLUME /data
+VOLUME ${YOUTRACK_INSTALL}/conf
 
 EXPOSE ${YOUTRACK_PORT}
 
