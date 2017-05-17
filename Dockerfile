@@ -1,11 +1,9 @@
 FROM hope/java:8
 
-MAINTAINER Sergey Sadovoi <sergey@hope.ua>
-
 ENV \
     # https://www.jetbrains.com/youtrack/download/get_youtrack.html
-    YOUTRACK_VERSION=7.0 \
-    YOUTRACK_BUILD=27777 \
+    YOUTRACK_VERSION=2017.2 \
+    YOUTRACK_BUILD=33154 \
     YOUTRACK_PORT=8080 \
     YOUTRACK_INSTALL=/usr/local/youtrack
 
