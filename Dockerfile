@@ -15,8 +15,8 @@ RUN \
     wget https://download.jetbrains.com/charisma/youtrack-${YOUTRACK_VERSION}.${YOUTRACK_BUILD}.zip && \
 
     unzip youtrack-${YOUTRACK_VERSION}.${YOUTRACK_BUILD}.zip && \
-    rm -rf youtrack-${YOUTRACK_BUILD}/internal/java && \
-    mv youtrack-${YOUTRACK_BUILD} ${YOUTRACK_INSTALL} && \
+    rm -rf youtrack-${YOUTRACK_VERSION}.${YOUTRACK_BUILD}/internal/java && \
+    mv youtrack-${YOUTRACK_VERSION}.${YOUTRACK_BUILD} ${YOUTRACK_INSTALL} && \
 
     # Configure
     ${YOUTRACK_INSTALL}/bin/youtrack.sh configure \
